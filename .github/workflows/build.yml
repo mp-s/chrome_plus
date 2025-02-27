@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - fork-shortcut
     paths-ignore:
       - ".clang-format"
       - ".gitignore"
@@ -125,7 +125,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
           git push origin release
-          gh pr create --base main --head release --title "build(release): bump version to ${{ github.event.inputs.version }}" --body "Bump version to ${{ github.event.inputs.version }}"
+          gh pr create --base fork-shortcut --head release --title "build(release): bump version to ${{ github.event.inputs.version }}" --body "Bump version to ${{ github.event.inputs.version }}"
 
       - name: Output Run ID
         run: echo "RUN_ID=${{ github.run_id }}" >> $GITHUB_OUTPUT
