@@ -22,7 +22,7 @@ Startup ExeMain = nullptr;
 
 void ChromePlus() {
   // Shortcut.
-  SetAppId();
+  // SetAppId();
 
   // Portable hijack patch.
   MakeGreen();
